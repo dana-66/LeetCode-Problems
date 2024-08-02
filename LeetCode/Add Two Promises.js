@@ -21,3 +21,7 @@ var addTwoPromises = async function (promise1, promise2) {
 };
 
 addTwoPromises(Promise.resolve(2), Promise.resolve(2)).then(console.log); // 4
+
+// explanation
+// Promise.all() method
+// This method takes an array of promises and returns a single promise that resolves when all of the promises in the array have resolved. The resolved value of the returned promise is an array containing the resolved values of the input promises.
