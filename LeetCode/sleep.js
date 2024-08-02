@@ -9,7 +9,7 @@ async function sleep(millis) {
     return new Promise(resolve => setTimeout(resolve, millis));
     // await new Promise(resolve => setTimeout(resolve, millis));
 }
-
+// he resolve parameter in the Promise constructor is a function that you call to indicate that the promise has successfully completed its task.
 /** 
  * let t = Date.now()
  * sleep(100).then(() => console.log(Date.now() - t)) // 100
