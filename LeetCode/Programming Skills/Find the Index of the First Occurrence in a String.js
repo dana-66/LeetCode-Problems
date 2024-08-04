@@ -13,3 +13,8 @@ var strStr = function(haystack, needle) {
         return -1;
     }
 };
+
+// another faster solution:
+var strStr = function(haystack, needle) {
+    return haystack.indexOf(needle);
+};
