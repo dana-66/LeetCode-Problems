@@ -52,7 +52,7 @@ ArrayWrapper.prototype.valueOf = function() {
 * @return {string}
 */
 ArrayWrapper.prototype.toString = function() {
-  = return `[${this.nums.join(',')}]`;
+   return `[${this.nums.join(',')}]`;
 }
 
 /**]
@@ -64,7 +64,7 @@ ArrayWrapper.prototype.toString = function() {
 */
 
 //another way to do so
-class ArrayWrapper {
+class ArrayWrapper1 {
     constructor(arr){
         this.arr = arr;
     }
@@ -80,11 +80,11 @@ class ArrayWrapper {
     }
 }
 
-//ex1 : Testing addition of two ArrayWrapper instances
-const obj1 = new ArrayWrapper([1, 2]);
-const obj2 = new ArrayWrapper([3, 4]);
+//ex1 : Testing addition of two ArrayWrapper1 instances
+const obj1 = new ArrayWrapper1([1, 2]);
+const obj2 = new ArrayWrapper1([3, 4]);
 console.log(obj1 + obj2);
 
-//ex2 : testing the string representation of an ArrayWrapper instance
-const obj3 = new ArrayWrapper([66, 32, 69, 76]);
+//ex2 : testing the string representation of an ArrayWrapper1 instance
+const obj3 = new ArrayWrapper1([66, 32, 69, 76]);
 console.log(toString(obj3));
