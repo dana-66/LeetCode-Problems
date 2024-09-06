@@ -32,30 +32,30 @@ obj1 + obj2; // 0
 */
 
 
-// /**
-//  * @param {number[]} nums
-//  * @return {void}
-//  */
-// var ArrayWrapper = function(nums) {
-//     this.nums = nums; 
-// };
+/**
+ * @param {number[]} nums
+ * @return {void}
+ */
+var ArrayWrapper = function(nums) {
+    this.nums = nums; 
+};
 
-
-// /**
-// * @return {number}
-// */
-// ArrayWrapper.prototype.valueOf = function() {
-//    return this.nums.reduce((acc, val) => acc + val, 0);
-// }
-
-// /**
-// * @return {string}
-// */
-// ArrayWrapper.prototype.toString = function() {
-//    return `[${this.nums.join(',')}]`;
-// }
 
 /**
+* @return {number}
+*/
+ArrayWrapper.prototype.valueOf = function() {
+   return this.nums.reduce((acc, val) => acc + val, 0);
+}
+
+/**
+* @return {string}
+*/
+ArrayWrapper.prototype.toString = function() {
+  = return `[${this.nums.join(',')}]`;
+}
+
+/**]
 * const obj1 = new ArrayWrapper([1,2]);
 * const obj2 = new ArrayWrapper([3,4]);
 * obj1 + obj2; // 10
@@ -83,7 +83,6 @@ class ArrayWrapper {
 //ex1 : Testing addition of two ArrayWrapper instances
 const obj1 = new ArrayWrapper([1, 2]);
 const obj2 = new ArrayWrapper([3, 4]);
-
 console.log(obj1 + obj2);
 
 //ex2 : testing the string representation of an ArrayWrapper instance
