@@ -37,3 +37,27 @@ var twoSum = function(nums, target) {
 console.log(twoSum([2, 7, 11, 15], 9)); // Output: [0, 1]
 console.log(twoSum([3, 2, 4], 6));       // Output: [1, 2]
 console.log(twoSum([3, 3], 6));          // Output: [0, 1]
+
+//My soloution 
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    const index = [];   //to add the index to it
+    // const current = nums[0];
+
+    //loop through the array
+    for(let i = 0; i < nums.length - 1; i++){
+        for(let j = i + 1; j < nums.length; j++){
+            if(nums[i] + nums[j] === target){
+                index.push(i);
+                index.push(j);
+                return index; // Return immediately after finding the pair
+            }
+        }
+    }
+    return index;
+
+};
