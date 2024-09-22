@@ -103,3 +103,69 @@ const sub = emitter.subscribe('onClick', onClickCallback);
 console.log(emitter.emit('onClick')); // [99]
 sub.unsubscribe(); // unsubscribe the callback
 console.log(emitter.emit('onClick')); // []
+
+
+//another solution :
+class EventEmitter {
+
+    constructor() {
+        this.events = {};
+    }
+    /**
+     * @param {string} eventName
+     * @param {Function} callback
+     * @return {Object}
+     */
+    subscribe(eventName, callback) {
+        if (!this.events[eventName]) {
+            this.events[eventName] = [];
+        }
+        this.events[eventName].push(callback);
+
+        return {
+            unsubscribe: () => {
+                this.events[eventName] = this.events[eventName].filter(cb => cb !== callback);
+
+                if (this.events[eventName].length === 0) {
+                    delete this.events[eventName];
+                }
+            }
+        };
+    }
+
+    /**
+     * @param {string} eventName
+     * @param {Array} args
+     * @return {Array}
+     */
+    emit(eventName, args = []) {
+        if (!this.events[eventName]) {
+            return [];
+        }
+        return this.events[eventName].map(callback => callback(...args));
+    }
+}
+
+/**
+ * const emitter = new EventEmitter();
+ *
+ * // Subscribe to the onClick event with onClickCallback
+ * function onClickCallback() { return 99 }
+ * const sub = emitter.subscribe('onClick', onClickCallback);
+ *
+ * emitter.emit('onClick'); // [99]
+ * sub.unsubscribe(); // undefined
+ * emitter.emit('onClick'); // []
+ */
+
+const emitter1 = new EventEmitter();
+
+// Subscribe to the 'onClick' event with the 'onClickCallback' function
+function onClickCallback() { return 99 }
+const sub1 = emitter1.subscribe('onClick', onClickCallback);
+
+console.log(emitter1.emit('onClick')); // [99] -> The callback is called and returns 99
+
+sub1.unsubscribe(); // Unsubscribe the 'onClickCallback'
+
+console.log(emitter1.emit('onClick')); // [] -> The callback was unsubscribed, so no result
